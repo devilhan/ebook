@@ -3,7 +3,7 @@
     <title>{% if search_novel.object_list %}关于{{ search_key }}的全部结果{% else %}没有找到任何内容{% endif %}</title>
 {% endblock %}
 {% block container %}
-    {% load staticfiles %}
+    {% load static %}
         <div class="container">
            {% if msg == "no" %}
                <div class="notfound">

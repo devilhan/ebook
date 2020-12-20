@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from functools import total_ordering
 from operator import attrgetter
 
+import six
 from django import VERSION
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
@@ -13,7 +14,7 @@ from django.db.models.fields import Field
 from django.db.models.fields.related import (ManyToManyRel, OneToOneRel,
                                              RelatedField)
 from django.db.models.query_utils import PathInfo
-from django.utils import six
+# from django.utils import six
 from django.utils.text import capfirst
 from django.utils.translation import ugettext_lazy as _
 

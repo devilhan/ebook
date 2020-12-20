@@ -43,13 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',#用户apps
+    'apps.users',#用户apps
     'xadmin',#xadmin后台apps
-    'novel', #小说的封面章节信息apps
+    'apps.novel', #小说的封面章节信息apps
     'crispy_forms',#xadmin后台apps
     'captcha', #验证码
-    'author', #作者app
-    'homes', #主页app
+    'apps.author', #作者app
+    'apps.homes', #主页app
     'pure_pagination', #实现分页功能app
     'taggit', #实现便签功能
 ]
@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'xiaobaidu',
         'USER': 'root',
-        'PASSWORD': 'admin123456',
+        'PASSWORD': '654321',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -154,7 +154,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'Banner')
 MEDIA_URL = '/Banner/'
 
 #定义邮箱账号密码
-EMAIL_HOST = "smtp.sina.com"
+EMAIL_HOST = "mail.163.com"
 EMAIL_PORT = 25
 EMAIL_HOST_USER = "12345678@sina.com"
 EMAIL_HOST_PASSWORD = "12345678"

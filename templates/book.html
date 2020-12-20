@@ -5,7 +5,7 @@
     <meta name="Keywords" content="{{ Book_info.novel_tag.tag_name }}" />
 {% endblock %}
 {% block cssjs %}
-{% load staticfiles %}
+{% load static %}
     <link href="{% static 'css/bootscript.css'%}" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/dzscstyle.css' %}"/>
     <link href="{% static 'css/smohanshare.css' %}" rel="stylesheet" type="text/css">
@@ -385,7 +385,7 @@
        }
            //评论加载---->这个功能还没有完成
     </script>
-{% load staticfiles  %}
+{% load static  %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/smohan.pop&share.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/qrcode.min.js' %}"></script>

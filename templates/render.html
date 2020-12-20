@@ -5,7 +5,7 @@
     <meta name="Keywords" content="我的阅读记录关键字" />
 {% endblock %}
 {% block cssjs %}
-    {% load staticfiles %}
+    {% load static %}
     <link href="{% static 'css/bootscript.css'%}" rel="stylesheet"/>
     <link href="{% static 'css/index.css' %}?v=20171115" rel="stylesheet"/>
     <link href="{% static 'css/tipnav.css' %}?v=20160818" rel="stylesheet"/>
@@ -14,7 +14,7 @@
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 {% endblock %}
 {% block container %}
-    {% load staticfiles %}
+    {% load static %}
     <div class="container">
     <ul class="nav nav-tabs" id="check_meun">
         <li>

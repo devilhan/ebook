@@ -1,9 +1,9 @@
 from __future__ import absolute_import
 from django.utils.translation import ugettext as _
-from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.contrib.auth import REDIRECT_FIELD_NAME, login, logout
 from django.views.decorators.cache import never_cache
-from django.contrib.auth.views import login
-from django.contrib.auth.views import logout
+# from django.contrib.auth.views import login
+# from django.contrib.auth.views import logout
 from django.http import HttpResponse
 
 from .base import BaseAdminView, filter_hook

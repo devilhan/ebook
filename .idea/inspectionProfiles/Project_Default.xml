@@ -1,0 +1,16 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="extra_apps.xadmin.sites.six" />
+          <option value="apps.users.models.NovelModel" />
+          <option value="apps.novel.models.users" />
+          <option value="apps.users.models.novel" />
+          <option value="apps.users.models.NovelModels" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

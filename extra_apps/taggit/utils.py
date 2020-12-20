@@ -2,7 +2,8 @@ from __future__ import unicode_literals
 
 from django import VERSION
 from django.conf import settings
-from django.utils import six
+# from django.utils import six
+import six
 from django.utils.encoding import force_text
 from django.utils.functional import wraps
 from django.utils.module_loading import import_string

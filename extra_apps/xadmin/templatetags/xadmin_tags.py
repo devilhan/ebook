@@ -1,7 +1,9 @@
 from django import template
 from django.template import Library
-from django.utils import six
+# from django.utils import six
+import six
 from django.utils.safestring import mark_safe
+from past.types import basestring
 
 from xadmin.util import static, vendor as util_vendor
 

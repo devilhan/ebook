@@ -3,12 +3,12 @@ from datetime import datetime
 
 from django.contrib.auth.models import AbstractUser
 
-
-
-
 # Create your models here.
+# from novel.models import NovelModel
 
 '''用户表'''
+
+
 class UserProFile(AbstractUser):
     nick_name = models.CharField(max_length=30, default="小白", verbose_name="昵称")
     sign_bool = models.BooleanField(default=False, verbose_name="签约")
@@ -17,9 +17,12 @@ class UserProFile(AbstractUser):
     mobile = models.CharField(max_length=11, null=True, blank=True, verbose_name="手机")
     is_jh = models.BooleanField(default=False, verbose_name="是否激活")
     hy_xbb = models.IntegerField(default=10, verbose_name="小白币")
-    hy_dj = models.CharField(choices=(("pthy","普通会员"),("xbhy","小白会员"),("cjxb","超级小白")), default="pthy", max_length=10, verbose_name="会员等级")
-    image = models.ImageField(upload_to="image/%Y/%m", default="image/default.png", null=True, blank=True, max_length=100, verbose_name="头像")
-    gender = models.CharField(max_length=25, choices=(("male","男"),("female","女")), default="female", verbose_name="性别")
+    hy_dj = models.CharField(choices=(("pthy", "普通会员"), ("xbhy", "小白会员"), ("cjxb", "超级小白")), default="pthy",
+                             max_length=10, verbose_name="会员等级")
+    image = models.ImageField(upload_to="image/%Y/%m", default="image/default.png", null=True, blank=True,
+                              max_length=100, verbose_name="头像")
+    gender = models.CharField(max_length=25, choices=(("male", "男"), ("female", "女")), default="female",
+                              verbose_name="性别")
     register_time = models.DateTimeField(default=datetime.now, verbose_name="注册时间")
 
     class Meta:
@@ -31,22 +34,28 @@ class UserProFile(AbstractUser):
 
 
 '''获取管理员用户'''
-class AdminPro(UserProFile):
 
+
+class AdminPro(UserProFile):
     class Meta:
         verbose_name = "管理信息"
         verbose_name_plural = verbose_name
-        proxy = True #这里非常关键如果不设置会新建一个表
+        proxy = True  # 这里非常关键如果不设置会新建一个表
+
 
 '''获取签约作者用户'''
-class SingUser(UserProFile):
 
+
+class SingUser(UserProFile):
     class Meta:
         verbose_name = "签约作者"
         verbose_name_plural = verbose_name
-        proxy = True #这里非常关键如果不设置会新建一个表
+        proxy = True  # 这里非常关键如果不设置会新建一个表
+
 
 '''用户的消息中心'''
+
+
 class Messages(models.Model):
     user_name = models.IntegerField(default=0, verbose_name="接收用户")
     mess_title = models.CharField(max_length=30, verbose_name="消息名称")
@@ -60,6 +69,8 @@ class Messages(models.Model):
 
 
 '''用户的充值记录'''
+
+
 class RechargeUser(models.Model):
     user_name = models.CharField(max_length=20, verbose_name="用户名")
     user_id = models.IntegerField(default=0, verbose_name="用户ID")
@@ -73,11 +84,15 @@ class RechargeUser(models.Model):
 
 
 '''邮箱验证码表'''
+
+
 class EmailVerifyRecord(models.Model):
     code = models.CharField(max_length=20, verbose_name="验证码")
     email = models.EmailField(max_length=50, verbose_name="邮箱")
-    is_sx = models.IntegerField(choices=(("1","可用"),("0","不可用"),), default="1", verbose_name="激活是否可以")
-    send_type = models.CharField(max_length=20, choices=(("register","用户注册"), ("forget","找回密码"),("upload_email","修改邮箱")), default="register",verbose_name="验证码类型")
+    is_sx = models.IntegerField(choices=(("1", "可用"), ("0", "不可用"),), default="1", verbose_name="激活是否可以")
+    send_type = models.CharField(max_length=20,
+                                 choices=(("register", "用户注册"), ("forget", "找回密码"), ("upload_email", "修改邮箱")),
+                                 default="register", verbose_name="验证码类型")
     send_time = models.DateTimeField(default=datetime.now, verbose_name="发送时间")
 
     class Meta:
@@ -88,7 +103,10 @@ class EmailVerifyRecord(models.Model):
     def __str__(self):
         return self.email
 
+
 '''用户收藏过的小说'''
+
+
 class Collection(models.Model):
     user_name = models.IntegerField(default=0, verbose_name="用户ID")
     novel_name = models.IntegerField(default=0, verbose_name="小说ID")
@@ -100,8 +118,9 @@ class Collection(models.Model):
         db_table = "Collections"
 
 
-
 '''用户收藏的作者'''
+
+
 class Author(models.Model):
     user_id = models.IntegerField(default=0, verbose_name="用户ID")
     user_name = models.CharField(max_length=20, verbose_name="用户名")
@@ -115,8 +134,9 @@ class Author(models.Model):
         db_table = "Author"
 
 
-
 '''用户阅读过的小说'''
+
+
 class ReadNovel(models.Model):
     user_name = models.IntegerField(default=0, verbose_name="用户ID")
     novel_name = models.IntegerField(default=0, verbose_name="小说ID")
@@ -129,15 +149,16 @@ class ReadNovel(models.Model):
         db_table = "ReadNovel"
 
 
-
 '''用户的评论'''
+
+
 class CommentModels(models.Model):
     from novel.models import NovelModel
-    user_id = models.ForeignKey(UserProFile, verbose_name="用户")
-    book_id = models.ForeignKey(NovelModel, verbose_name="小说")
+    user_id = models.ForeignKey(UserProFile, verbose_name="用户", on_delete=models.CASCADE)
+    book_id = models.ForeignKey(NovelModel, verbose_name="小说", on_delete=models.CASCADE)
     commtitle = models.CharField(max_length=20, default="", verbose_name="评论标题")
     comment = models.CharField(max_length=200, verbose_name="评论内容")
-    comment_data = models.DateTimeField(default=datetime.now, null=True, blank=True,verbose_name="评论时间")
+    comment_data = models.DateTimeField(default=datetime.now, null=True, blank=True, verbose_name="评论时间")
 
     class Meta:
         verbose_name = "用户评论"

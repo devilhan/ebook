@@ -40,6 +40,7 @@ More info about django-import-export please refer https://github.com/django-impo
 """
 from datetime import datetime
 from django.template import loader
+from django.urls import reverse
 from xadmin.plugins.utils import get_context_dict
 from xadmin.sites import site
 from xadmin.views import BaseAdminPlugin, ListAdminView, ModelAdminView
@@ -63,7 +64,7 @@ from django.template.response import TemplateResponse
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE, DELETION
 from django.contrib.contenttypes.models import ContentType
 from django.contrib import messages
-from django.core.urlresolvers import reverse
+# from django.core.urlresolvers import reverse
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect, HttpResponse
 

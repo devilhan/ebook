@@ -1,11 +1,12 @@
 
 from django.contrib.contenttypes.models import ContentType
-from django.core.urlresolvers import reverse
+# from django.core.urlresolvers import reverse
 from django.db import transaction
 from django.db.models import Q
 from django.forms import ModelChoiceField
 from django.http import QueryDict
 from django.template import loader
+from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.utils.encoding import smart_text
 from django.utils.translation import ugettext_lazy as _

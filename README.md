@@ -6,8 +6,8 @@
 
 2.所需要的环境与组件
 -------------
->主要用到环境：Python3.6<br/>
->Django1.11.7<br/>
+>主要用到环境：Python3.7<br/>
+>Django3.1.4<br/>
 >Pymysql<br/>
 >Mysql<br/>
 >pure_pagination<br/>
@@ -21,7 +21,7 @@
 >
 >2.如果阁下没有安装上面我所说到的环境，请阁下自行安装。<br/>
 >
->3.安装环境后请修改```Django-Imitation-osmetic-urge/Xiao_bai/```目录下的```settings.py```文件里面的```DATABASES ```数据库连接信息和邮箱配置信息<br/>
+ >3.安装环境后请修改```Django-Imitation-osmetic-urge/Xiao_bai/```目录下的```settings.py```文件里面的```DATABASES ```数据库连接信息和邮箱配置信息<br/>
 >
 >4.然后进入项目根目录执行:```python manage.py makemigrations```<br/>
 >

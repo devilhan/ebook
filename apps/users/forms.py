@@ -1,7 +1,7 @@
 from django import forms
 from .models import *
 
-from captcha.fields import CaptchaField #验证码
+# from captcha.fields import CaptchaField #验证码
 
 #用户登陆验证
 class DlForm(forms.Form):

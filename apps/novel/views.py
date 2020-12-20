@@ -10,7 +10,6 @@ from django.core import serializers #把数据转换成json数据
 
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger #用来加载分页器的异常
 # Create your views here.
-
 from .models import *
 from users.models import ReadNovel, Collection, CommentModels  # 导入小说阅读收藏模块
 

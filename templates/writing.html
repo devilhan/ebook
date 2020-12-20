@@ -5,7 +5,7 @@
     <meta name="Keywords" content="{{ request.user.nick_name }}的写作后台" />
 {% endblock %}
 {% block cssjs %}
-{% load staticfiles %}
+{% load static %}
     <link href="{% static 'css/bootscript.css'%}" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/dzscstyle.css' %}"/>
     <link href="{% static 'css/smohanshare.css' %}" rel="stylesheet" type="text/css">
@@ -377,7 +377,7 @@
             {% endif %}
         });
     </script>
-{% load staticfiles  %}
+{% load static  %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/smohan.pop&share.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/qrcode.min.js' %}"></script>
